@@ -1,0 +1,63 @@
+@font-face {
+	font-family: 'Montserrat-SemiBold';
+	src: url('/assets/fonts/Montserrat-SemiBold/Montserrat-SemiBoldd41d.eot?#iefix');
+	src: local('☺'),
+		url('/assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.otf')
+			format('opentype'),
+		url('/assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.woff')
+			format('woff'),
+		url('/assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.ttf')
+			format('truetype'),
+		url('/assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.svg#Montserrat-SemiBold')
+			format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SourceSansPro';
+	src: url('/assets/fonts/SourceSansPro-SemiBold/SourceSansPro-SemiBold.eot');
+	src: local('☺'),
+		url('/assets/fonts/SourceSansPro-SemiBold/SourceSansPro-SemiBold.woff2')
+			format('woff2'),
+		url('/assets/fonts/SourceSansPro-SemiBold/SourceSansPro-SemiBold.woff')
+			format('woff'),
+		url('/assets/fonts/SourceSansPro-SemiBold/SourceSansPro-SemiBold.ttf')
+			format('truetype'),
+		url('/assets/fonts/SourceSansPro-SemiBold/SourceSansPro-SemiBold.svg')
+			format('svg');
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SourceSansPro';
+	src: url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.eot');
+	src: local('☺'),
+		url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.woff2')
+			format('woff2'),
+		url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.woff')
+			format('woff'),
+		url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.ttf')
+			format('truetype'),
+		url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.svg')
+			format('svg');
+	font-weight: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SourceSansPro';
+	src: url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.eot');
+	src: local('☺'),
+		url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.woff2')
+			format('woff2'),
+		url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.woff')
+			format('woff'),
+		url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.ttf')
+			format('truetype'),
+		url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.svg')
+			format('svg');
+	font-weight: bold;
+	font-display: swap;
+}
