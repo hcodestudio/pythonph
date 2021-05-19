@@ -1,0 +1,252 @@
+@each $name, $value in $spacing {
+	.line-height-#{$name} {
+		line-height: $value !important;
+	}
+}
+
+@each $name, $value in $flexBasis {
+	.flex-basis-#{$name} {
+		flex-basis: $value !important;
+	}
+}
+
+// @each $name, $value in $fontFamily {
+// 	.font-#{$name} {
+// 		font-family: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $fontWeight {
+// 	.font-#{$name} {
+// 		font-weight: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $colors {
+// 	.text-#{$name} {
+// 		color: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.text-#{$name} {
+// 		font-size: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $colors {
+// 	.bg-#{$name} {
+// 		background-color: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $colors {
+// 	.border-#{$name} {
+// 		border-color: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.border-#{$name} {
+// 		border-width: $value !important;
+// 		border-style: solid;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.border-t-#{$name} {
+// 		border-top-width: $value !important;
+// 		border-top-style: solid;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.mt-#{$name} {
+// 		margin-top: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.ml-#{$name} {
+// 		margin-left: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.mb-#{$name} {
+// 		margin-bottom: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.mr-#{$name} {
+// 		margin-right: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.mx-#{$name} {
+// 		margin-left: $value !important;
+// 		margin-right: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.my-#{$name} {
+// 		margin-top: $value !important;
+// 		margin-bottom: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.-mx-#{$name} {
+// 		margin-left: -#{$value} !important;
+// 		margin-right: -#{$value} !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.pt-#{$name} {
+// 		padding-top: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.pl-#{$name} {
+// 		padding-left: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.pb-#{$name} {
+// 		padding-bottom: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.pr-#{$name} {
+// 		padding-right: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.px-#{$name} {
+// 		padding-left: $value !important;
+// 		padding-right: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.py-#{$name} {
+// 		padding-top: $value !important;
+// 		padding-bottom: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.h-#{$name} {
+// 		height: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.w-#{$name} {
+// 		width: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.min-h-#{$name} {
+// 		min-height: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.max-h-#{$name} {
+// 		max-height: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.max-w-#{$name} {
+// 		max-width: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $borderRadius {
+// 	.rounded-#{$name} {
+// 		border-radius: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.rounded-#{$name} {
+// 		border-radius: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.right-#{$name} {
+// 		right: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.left-#{$name} {
+// 		left: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.bottom-#{$name} {
+// 		bottom: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $zIndex {
+// 	.z-#{$name} {
+// 		z-index: $value !important;
+// 	}
+// }
+
+// .container {
+// 	max-width: 100% !important;
+// }
+
+// @each $name, $value in $breakpoints {
+// 	.container-#{$name} {
+// 		max-width: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $opacity {
+// 	.opacity-#{$name} {
+// 		opacity: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $opacity {
+// 	.hover\:opacity-#{$name}:hover {
+// 		opacity: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.top-#{$name} {
+// 		top: $value !important;
+// 	}
+// }
+
+// @each $name, $value in $spacing {
+// 	.left-#{$name} {
+// 		left: $value !important;
+// 	}
+// }
+
+// @each $bpName, $bpValue in $breakpoints {
+// 	@media (min-width: $bpValue) {
+// 		.#{$bpName}\:something {
+// 			margin-left: 0.3125rem;
+// 		}
+// 	}
+// }
