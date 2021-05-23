@@ -11,6 +11,7 @@ const uglify = require('gulp-uglify');
 var tailwindFiles = ['./tailwind.config.js', './Styles/site.css'];
 
 var jsSources = [
+	'js/jquery-3.6.0.min.js',
 	'js/bootstrap.bundle.min.js',
 	'js/swiper-bundle.min.js',
 	'js/aos.js',
@@ -38,7 +39,7 @@ function generateCSS(cb) {
 
 task('purge', () => {
 	return (
-		src('css/styles.css')
+		src('../assets/css/styles.css')
 			.pipe(sourcemaps.init())
 			.pipe(
 				postcss([
@@ -63,7 +64,7 @@ task('purge', () => {
 				})
 			)
 			// .pipe(sourcemaps.write('.'))
-			.pipe(dest('css'))
+			.pipe(dest('../assets/css'))
 	);
 });
 
