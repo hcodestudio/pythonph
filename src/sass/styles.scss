@@ -1,27 +1,4 @@
-$tooltip-bg: white;
-$tooltip-border-radius: 0.625rem;
-$tooltip-opacity: 1;
-$tooltip-padding-y: 1.25rem;
-$tooltip-padding-x: 1.5625rem;
-$tooltip-margin: 0;
-
-$tooltip-arrow-width: 1.125rem;
-$tooltip-arrow-height: 0.625rem;
-$tooltip-arrow-color: white;
-// @import 'bootstrap/bootstrap';
-// @import 'bootstrap/vendor/rfs';
-// @import 'bootstrap/functions';
-// @import 'bootstrap/variables';
-// @import 'bootstrap/mixins/transition';
-// @import 'bootstrap/transitions';
-// @import 'bootstrap/mixins/breakpoints';
-// @import 'bootstrap/mixins/border-radius';
-// @import 'bootstrap/mixins/gradients';
-// @import 'bootstrap/mixins/reset-text';
-// @import 'bootstrap/mixins/box-shadow';
-// @import 'bootstrap/nav';
-// @import 'bootstrap/tooltip';
-// @import 'bootstrap/popover';
+@import 'tooltip';
 @import 'bootstrap/bootstrap';
 
 @tailwind base;
@@ -29,36 +6,7 @@ $tooltip-arrow-color: white;
 
 @tailwind utilities;
 
-@import 'aos';
 @import 'fonts';
-@import 'swiper-bundle.min.scss';
-@import 'overrides';
-@import 'utilities';
-// @import 'animate.min.css';
-
-html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'] {
-	transition-property: -webkit-transform, opacity;
-	transition-property: transform, opacity;
-	visibility: visible;
-	opacity: 0;
-	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 200, 0, 1);
-}
-
-html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
-	visibility: visible;
-	opacity: 1;
-	-webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-}
-// html:not(.no-js) [data-aos='py-slide-up'] {
-
-[data-aos] {
-	body[data-aos-easing='py-easing'] &,
-	&[data-aos][data-aos-easing='py-easing'] {
-		transition-timing-function: cubic-bezier(0.5, 0, 0, 1),
-			cubic-bezier(0.5, 0, 0, 1);
-	}
-}
 
 @layer utilities {
 	@variants responsive {
@@ -111,6 +59,18 @@ html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
 			flex-basis: 19%;
 		}
 	}
+}
+
+.preload * {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 p {
@@ -193,6 +153,10 @@ u {
 	transform: skewX(7deg);
 }
 
+/* purgecss start ignore */
+@import 'aos';
+@import 'swiper-bundle';
+
 .swiper-pagination-switch {
 	display: inline-block;
 	width: 10px;
@@ -226,28 +190,39 @@ u {
 
 @media (max-width: 767px) {
 	.slider-pane {
-		position: absolute;
-		flex-direction: column;
 		top: 0;
 		right: 0;
-		bottom: 0;
-		left: 0;
-		overflow: hidden;
-		-webkit-clip-path: circle(0 at 92% 2%);
-		clip-path: circle(0 at 92% 2%);
-		transition: background-color 0.3s 0.6s, -webkit-clip-path 1.2s;
-		transition: clip-path 1.2s, background-color 0.3s 0.6s;
-		transition: clip-path 1.2s, background-color 0.3s 0.6s,
-			-webkit-clip-path 1.2s;
+		height: 100%;
+		width: 100%;
+		-webkit-transition-timing-function: cubic-bezier(
+			0.465,
+			0.183,
+			0.153,
+			0.946
+		);
+		transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+		-webkit-transition: 0.3s;
+		transition: 0.3s;
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
 
 		&.opened {
-			background-color: #101c42;
-			-webkit-clip-path: circle(100%);
-			clip-path: circle(100%);
-			transition: background-color 0s 0s, -webkit-clip-path 1.2s;
-			transition: clip-path 1.2s, background-color 0s 0s;
-			transition: clip-path 1.2s, background-color 0s 0s,
-				-webkit-clip-path 1.2s;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+			-webkit-transition-timing-function: cubic-bezier(
+				0.465,
+				0.183,
+				0.153,
+				0.946
+			);
+			transition-timing-function: cubic-bezier(
+				0.465,
+				0.183,
+				0.153,
+				0.946
+			);
+			-webkit-transition: 0.3s;
+			transition: 0.3s;
 		}
 	}
 
@@ -262,14 +237,37 @@ u {
 	}
 }
 
-@media (min-width: 768px) {
-	#view-list {
-		display: block;
-		column-count: 3;
+html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'] {
+	transition-property: -webkit-transform, opacity;
+	transition-property: transform, opacity;
+	visibility: hidden;
+	opacity: 0;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 200, 0, 1);
+}
+
+html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+[data-aos] {
+	visibility: hidden;
+	opacity: 0;
+
+	&.aos-animate {
+		visibility: visible;
+		opacity: 1;
+	}
+	body[data-aos-easing='py-easing'] &,
+	&[data-aos][data-aos-easing='py-easing'] {
+		transition-timing-function: cubic-bezier(0.5, 0, 0, 1),
+			cubic-bezier(0.5, 0, 0, 1);
 	}
 }
 
-#btn-toggle {
+.btn-toggle {
 	background: url('/assets/img/icon/icon-toggle.svg') no-repeat;
 	width: 25px;
 	height: 15px;
@@ -281,59 +279,8 @@ u {
 		background-size: cover;
 	}
 }
-// [data-aos] {
-// 	visibility: hidden;
-// }
-// [data-aos].slide-up {
-// 	visibility: visible;
-// 	opacity: 1;
-// transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-// transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.15s,
-// 	transform 1s cubic-bezier(0.5, 0, 0, 1) 0.15s;
-// }
 
-// html:not(.no-js) [data-aos^='slide'][data-aos^='slide'].aos-animate {
-// 	visibility: visible;
-// 	// -webkit-transform: translateZ(0);
-// 	// transform: translateZ(0);
-// 	transform: matrix3d(
-// 		1,
-// 		0,
-// 		0,
-// 		0,
-// 		0,
-// 		1,
-// 		0,
-// 		0,
-// 		0,
-// 		0,
-// 		1,
-// 		0,
-// 		0,
-// 		0,
-// 		0,
-// 		1
-// 	) !important;
-// 	transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.15s,
-// 		transform 1s cubic-bezier(0.5, 0, 0, 1) 0.15s;
-// }
+@import 'bootstrap/tooltip';
+@import 'bootstrap/transitions';
 
-// p, li, img {
-// 	visibility: hidden;
-
-// }
-// .is-visible {
-// 	visibility: visible;
-// 	opacity: 1;
-// 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-// 	transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.15s,
-// 		transform 1s cubic-bezier(0.5, 0, 0, 1) 0.15s;
-// }
-
-div#people img {
-	opacity: 0;
-	transition: 0.5s opacity;
-}
-div#people img.visible {
-	opacity: 1;
-}
+/* purgecss end ignore */

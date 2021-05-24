@@ -1,29 +1,32 @@
-const { task, src, dest } = require('gulp');
+const { src, dest } = require('gulp');
+const atimport = require('postcss-import');
 const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
 const postcss = require('gulp-postcss');
-const purgecss = require('gulp-purgecss');
+const purgecss = require('@fullhuman/postcss-purgecss');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-
-const concat = require('gulp-concat');
+const tailwindcss = require('tailwindcss');
 const uglify = require('gulp-uglify');
 
-var tailwindFiles = ['./tailwind.config.js', './Styles/site.css'];
+const PUBLIC_CSS = '../assets/css';
+const PUBLIC_JS = '../assets/js';
+
+const SOURCE_STYLESHEET = '../assets/css/styles.css';
+const TAILWIND_CONFIG = './tailwind.config.js';
 
 var jsSources = [
-	'js/jquery-3.6.0.min.js',
-	'js/bootstrap.bundle.min.js',
-	'js/swiper-bundle.min.js',
-	'js/aos.js',
+	'js/vendor/jquery-3.6.0.min.js',
+	'js/vendor/bootstrap.bundle.min.js',
+	'js/vendor/swiper-bundle.min.js',
+	'js/vendor/aos.js',
 	'js/pythonph.js',
 ];
 
-task('watch', () => {
-	return gulp.watch(tailwindFiles, gulp.series('css'));
-});
+var sassSources = ['sass/styles.scss'];
 
 function generateCSS(cb) {
-	src('sass/styles.scss')
+	src(sassSources)
 		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.init())
 		.pipe(
@@ -33,48 +36,44 @@ function generateCSS(cb) {
 				require('autoprefixer'),
 			])
 		)
-		.pipe(dest('../assets/css'));
+		.pipe(dest(PUBLIC_CSS));
 	cb();
 }
 
-task('purge', () => {
-	return (
-		src('../assets/css/styles.css')
-			.pipe(sourcemaps.init())
-			.pipe(
-				postcss([
-					require('precss'),
-					require('tailwindcss'),
-					require('autoprefixer'),
-				])
-			)
-			.pipe(
-				purgecss({
-					content: ['../**/*.html'],
-				})
-			)
-			.pipe(
-				cleanCSS({
-					compatibility: 'ie8',
-					level: {
-						2: {
-							removeDuplicateRules: true, // turns on removing duplicate rules
-						},
-					},
-				})
-			)
-			// .pipe(sourcemaps.write('.'))
-			.pipe(dest('../assets/css'))
-	);
-});
-
-task('js', (cb) => {
-	src(jsSources)
-		.pipe(concat('app.js'))
-		.pipe(uglify())
-		.pipe(dest('../assets/js'));
+function generateJs(cb) {
+	src(jsSources).pipe(concat('app.js')).pipe(uglify()).pipe(dest(PUBLIC_JS));
 
 	cb();
-});
+}
+
+function purgeCSS(cb) {
+	src(SOURCE_STYLESHEET)
+		.pipe(
+			postcss([
+				atimport(),
+				tailwindcss(TAILWIND_CONFIG),
+				purgecss({
+					content: ['../**/*.html'],
+					defaultExtractor: (content) =>
+						content.match(/[\w-/:]+(?<!:)/g) || [],
+				}),
+			])
+		)
+		.pipe(
+			cleanCSS({
+				compatibility: 'ie8',
+				level: {
+					2: {
+						removeDuplicateRules: true, // turns on removing duplicate rules
+					},
+				},
+			})
+		)
+		.pipe(dest(PUBLIC_CSS, { overwrite: true }));
+
+	cb();
+}
 
 exports.css = generateCSS;
+exports.js = generateJs;
+exports.purge = purgeCSS;
