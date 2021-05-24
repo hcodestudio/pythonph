@@ -11,28 +11,28 @@
 @layer utilities {
 	@variants responsive {
 		.bg-image-1 {
-			background-image: url('/assets/img/bg/bg-1.svg');
+			background-image: url('../img/bg/bg-1.svg');
 		}
 
 		.bg-image-2 {
-			background-image: url('/assets/img/bg/bg-2.svg');
+			background-image: url('../img/bg/bg-2.svg');
 			min-height: 518px;
 		}
 
 		.bg-image-3 {
-			background-image: url('/assets/img/bg/bg-3.svg');
+			background-image: url('../img/bg/bg-3.svg');
 		}
 
 		.bg-image-4 {
-			background-image: url('/assets/img/bg/bg-4.svg');
+			background-image: url('../img/bg/bg-4.svg');
 		}
 
 		.bg-image-5 {
-			background-image: url('/assets/img/bg/bg-5.svg');
+			background-image: url('../img/bg/bg-5.svg');
 		}
 
 		.bg-image-6 {
-			background-image: url('/assets/img/bg/bg-6.svg');
+			background-image: url('../img/bg/bg-6.svg');
 		}
 
 		.flex-basis-1\/2 {
@@ -85,12 +85,10 @@ p {
 
 	.card-header {
 		button[aria-expanded='false'] {
-			background: url('/assets/img/icon/icon-chevron-down.svg') no-repeat
-				right;
+			background: url('../img/icon/icon-chevron-down.svg') no-repeat right;
 		}
 		button[aria-expanded='true'] {
-			background: url('/assets/img/icon/icon-chevron-up.svg') no-repeat
-				right;
+			background: url('../img/icon/icon-chevron-up.svg') no-repeat right;
 		}
 	}
 
@@ -119,7 +117,7 @@ u {
 
 .our-aim {
 	li {
-		background: url('/assets/img/icon/icon-star.svg') no-repeat left 5px;
+		background: url('../img/icon/icon-star.svg') no-repeat left 5px;
 		padding-left: 30px;
 		list-style: none;
 		background-size: 17px;
@@ -268,12 +266,12 @@ html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
 }
 
 .btn-toggle {
-	background: url('/assets/img/icon/icon-toggle.svg') no-repeat;
+	background: url('../img/icon/icon-toggle.svg') no-repeat;
 	width: 25px;
 	height: 15px;
 
 	&.opened {
-		background: url('/assets/img/icon/icon-close.svg') no-repeat;
+		background: url('../img/icon/icon-close.svg') no-repeat;
 		width: 16px;
 		height: 16px;
 		background-size: cover;
@@ -282,5 +280,4 @@ html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
 
 @import 'bootstrap/tooltip';
 @import 'bootstrap/transitions';
-
 /* purgecss end ignore */
