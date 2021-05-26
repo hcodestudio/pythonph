@@ -50,11 +50,10 @@ window.addEventListener('DOMContentLoaded', function () {
 	document.body.classList.remove('preload');
 
 	AOS.init({
-		anchor: '.py-easing',
-		delay: 300,
-		duration: 1200,
+		delay: 230,
+		duration: 1000,
 		easing: 'py-easing',
-		offset: 100,
+		offset: 50,
 		once: true,
 		startEvent: 'DOMContentLoaded',
 	});
@@ -78,9 +77,9 @@ document.querySelector('.btn-toggle').addEventListener('click', function () {
 var swiper = new Swiper('.carousel-swiper', {
 	pagination: {
 		el: '.carousel-pagination',
+		clickable: true,
 	},
 	loop: true,
-	grabCursor: true,
 });
 
 var tooltipTriggerList = [].slice.call(

@@ -1,4 +1,4 @@
-const { src, dest } = require('gulp');
+const { src, dest, series } = require('gulp');
 const atimport = require('postcss-import');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
@@ -8,6 +8,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const tailwindcss = require('tailwindcss');
 const uglify = require('gulp-uglify');
+const htmlmin = require('gulp-htmlmin');
 
 const PUBLIC_CSS = '../assets/css';
 const PUBLIC_JS = '../assets/js';
@@ -74,6 +75,14 @@ function purgeCSS(cb) {
 	cb();
 }
 
-exports.css = generateCSS;
-exports.js = generateJs;
+function minifyHTML(cb) {
+	src('../index.html')
+		.pipe(htmlmin({ removeComments: true, collapseWhitespace: true }))
+		.pipe(dest('../build', { overwrite: true }));
+
+	cb();
+}
+
+exports.local = series(generateCSS, generateJs);
 exports.purge = purgeCSS;
+exports.minify = minifyHTML;

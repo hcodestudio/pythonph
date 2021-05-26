@@ -25,6 +25,7 @@
 
 		.bg-image-4 {
 			background-image: url('../img/bg/bg-4.svg');
+			min-height: 748px;
 		}
 
 		.bg-image-5 {
@@ -236,32 +237,28 @@ u {
 }
 
 html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'] {
-	transition-property: -webkit-transform, opacity;
-	transition-property: transform, opacity;
-	visibility: hidden;
 	opacity: 0;
-	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 200, 0, 1);
+	visibility: visible;
+	transition-property: opacity, -webkit-transform;
+	transition-property: opacity, transform;
+	transition-property: opacity, transform, -webkit-transform;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 100, 0, 1);
 }
 
 html:not(.no-js) [data-aos^='py-slide'][data-aos^='py-slide'].aos-animate {
-	visibility: visible;
 	opacity: 1;
+	visibility: visible;
 	-webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 [data-aos] {
-	visibility: hidden;
-	opacity: 0;
-
-	&.aos-animate {
-		visibility: visible;
-		opacity: 1;
-	}
 	body[data-aos-easing='py-easing'] &,
 	&[data-aos][data-aos-easing='py-easing'] {
+		transition-duration: 1s, 1s;
 		transition-timing-function: cubic-bezier(0.5, 0, 0, 1),
 			cubic-bezier(0.5, 0, 0, 1);
+		// transition-delay: 0.23s, 0.23s;
 	}
 }
 

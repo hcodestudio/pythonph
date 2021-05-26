@@ -5,18 +5,21 @@
 Install all `npm` dependencies found on `package.json` by running the following command in the terminal (for Mac OS) or command prompt (for Windows):
 
 ```html
-  npm i
+npm i
 ```
 
-
 ### Compiling assets (js & css)
-After adding any updates in the css and javascript, run the following commands.
-* For css: `gulp css`
-* For javascript: `gulp js`
+
+After adding any updates in the css and javascript, run the following script.
+
+```html
+gulp local
+```
 
 ### For deployment
 
-Purge assets to drastically minimize css file size
+Purge assets to drastically minimize css file size and minify index.html
+
 ```html
-  gulp purge
+gulp build
 ```
